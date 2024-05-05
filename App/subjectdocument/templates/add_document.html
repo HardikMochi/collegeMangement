@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">Add Data<a target="_blank">
+    </a>.</p>
+
+    <!-- DataTales Example -->
+    <form class="user" action="{% url 'subjectdocument:adddocument' data.subject.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            Name <input type="text" value="{{data.subject.subject_name}}" class="form-control form-control-user"
+                   id="exampleInputEmail" aria-describedby="emailHelp"
+                    name="name" disabled="" >
+        </div>
+        <div class="form-group">
+            Upload Document<br>
+            <input type="file"
+                   id="myfile" placeholder="upload file here" name="myfile" >
+        </div>
+        <div class="form-group">
+            File Name <input type="text"  class="form-control form-control-user"
+                   id="filename" aria-describedby="emailHelp"
+                    name="filename">
+        </div>
+            <input type="submit" class="btn btn-primary btn-user btn-block">
+
+        <hr>
+    </form>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock content %}
+
